@@ -6,22 +6,50 @@
 
 // RIP xhttp error how to test local images?
 // SEE: https://security.stackexchange.com/questions/190266/why-chrome-blocks-ajax-locally
-
-// let image = document.getElementById('image');
-// let image = 's16.png';
-let image = 'https://raw.githubusercontent.com/mrvivacious/CS397_SearchableSlides/master/s16.png';
-
 const { TesseractWorker } = Tesseract;
 const worker = new TesseractWorker();
 
-worker
-  .recognize(image)
-  .progress((p) => {
-    let dialog = p.status + ': ' + p.progress;
-    document.getElementById('outputText').innerText = dialog;
-    // console.log(p)
-  })
-  .then(({ text }) => {
-    document.getElementById('outputText').innerText = text;
-    worker.terminate();
-  });
+let imageTag = document.getElementById('image');
+
+let blackOnWhiteImage = 'https://raw.githubusercontent.com/mrvivacious/CS397_SearchableSlides/master/s16.png';
+let unclearTextImage = 'https://raw.githubusercontent.com/mrvivacious/CS397_SearchableSlides/master/s14.png';
+
+let outputText = document.getElementById('outputText');
+
+let button_simpleDemo = document.getElementById('simpleDemo');
+let button_trickyDemo = document.getElementById('trickyDemo');
+
+button_simpleDemo.addEventListener('click', simpleDemo);
+button_trickyDemo.addEventListener('click', trickyDemo);
+
+// Demo with a "standard" slide, ie. black text on white background
+function simpleDemo() {
+  getTextFromImage(blackOnWhiteImage);
+}
+
+// Demo with a slide that doesn't output text clearly,
+//  in this case a slide with an image of space as the background
+//  with yellow text
+function trickyDemo() {
+  getTextFromImage(unclearTextImage);
+}
+
+// Given a src URL, attempt to read the text from
+//  the image hosted at this location
+// Thank you,
+// https://github.com/naptha/tesseract.js/blob/master/docs/examples.md
+function getTextFromImage(imageURL) {
+  imageTag.src = imageURL;
+
+  worker
+    .recognize(imageURL)
+    .progress((p) => {
+      let dialog = p.status + ': ' + p.progress;
+      outputText.innerText = dialog;
+      // console.log(p)
+    })
+    .then(({ text }) => {
+      outputText.innerText = text;
+      worker.terminate();
+    });
+}

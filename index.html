@@ -10,13 +10,34 @@
   <head>
     <meta charset="utf-8">
     <title>Searchable Slides</title>
+
+    <style>
+      body, button {
+        font-size: 24px;
+      }
+
+    </style>
   </head>
   <body>
     <center>
       <!-- <img src="https://tesseract.projectnaptha.com/img/eng_bw.png" width="60%"> -->
-      <img id="image" src="s16.png" width="60%">
+      <img id="image" src="s14.png" width="60%">
       <br>
-      <p id='outputText'>Output goes here</p>
+      <hr>
+
+      <button id="simpleDemo" type="button" name="button">
+        Demo a standard slide
+      </button>
+
+      <br><br>
+
+      <button id="trickyDemo" type="button" name="button">
+        Demo a slide with an image background
+      </button>
+
+      <hr>
+
+      <p id="outputText">Output goes here</p>
     </center>
   </body>
 
