@@ -3,11 +3,11 @@ A tool to search for keywords in a video of lecture slides
 
 To do:
 By September 13:
-o Given a single picture of a slide, can we read the text from it?
+√ Given a single picture of a slide, can we read the text from it?
   + https://github.com/naptha/tesseract.js#cdn
   + https://blog.logrocket.com/how-to-extract-text-from-an-image-using-javascript-8fe282fb0e71/
-  
-Sept 27:  
+
+Sept 27:
 o Given a video of lecture slides, can we detect when the slides change?
   + http://cwestblog.com/2017/05/03/javascript-snippet-get-video-frame-as-an-image/
 
@@ -29,7 +29,7 @@ o ???
 Weekly updates:
 Aug 26 - Aug 30:
 Got in touch with professor Angrave (https://github.com/angrave) regarding CS397 and this project
-  
+
 √ Sep 2 - Sep 6:
 Created this repository
 Created a to do list
