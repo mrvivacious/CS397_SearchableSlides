@@ -1,6 +1,10 @@
 CS397_SearchableSlides
 A tool to search for keywords in a video of lecture slides
 
+NOTEWORTHY:
+Slides with image backgrounds can affect the text recognition of the slide...what to do?
+Local files cannot be accessed...how to make a fully client-side application, or is server-client the way to go?
+
 To do:
 By September 13:
 √ Given a single picture of a slide, can we read the text from it?
@@ -27,10 +31,14 @@ o ???
 
 
 Weekly updates:
-Aug 26 - Aug 30:
+√ Aug 26 - Aug 30:
 Got in touch with professor Angrave (https://github.com/angrave) regarding CS397 and this project
 
 √ Sep 2 - Sep 6:
 Created this repository
 Created a to do list
 Added expected deadlines (with respect to working 3-6 hours a week)
+
+√ Sep 9 - Sep 14:
+Created a demo version that does text recognition on a slide with a blank background
+Added a slide with an image background to demo the difficulty of text recongition with these kinds of slides
