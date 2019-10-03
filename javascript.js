@@ -53,3 +53,115 @@ function getTextFromImage(imageURL) {
       worker.terminate();
     });
 }
+
+
+// This function will output the timestamps for when the slides
+//  change
+
+
+
+
+
+
+/////
+/////
+
+//////////
+
+/////
+/////
+/////
+//////////
+/////
+/////
+/////
+
+/////
+/////
+/////
+/////
+
+/////
+//////////
+//////////////////////////////////// VIDEOS ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+let vid = document.getElementById('video');
+
+// Thank you,
+// https://stackoverflow.com/questions/20841281/videojs-getting-timestamp-of-video-dynamically
+// vid.addEventListener('timeupdate', log);
+
+
+// Get frame at this time ???
+
+// Thank you,
+// https://snipplr.com/view/64256/
+window.onload = function() {
+  let video = vid;
+  let canvas = document.getElementById('canvas');
+
+  video.addEventListener('pause', function() {
+    draw(video, canvas);
+  }, false);
+}
+
+function draw(video, cnv) {
+  // Get the canvas context for drawing
+  let context = cnv.getContext('2d');
+
+  // Draw the video contents into the canvas x, y, width, height
+  context.drawImage(video, 0, 0, cnv.width, cnv.height);
+
+  // Get image data from canvas object
+  let dataURL = cnv.toDataURL();
+
+  // Set the source of the image tag
+  let img = new Image();
+  img.setAttribute('src', dataURL);
+
+  document.getElementById('outputText').append(img);
+}
+
+function processVideo() {
+  if (vid.src !== document.getElementsByTagName('input')[0].files[0].name) {
+    vid.src = document.getElementsByTagName('input')[0].files[0].name;
+  }
+
+  // Can we get the frame from every 10 seconds?
+
+  // Detect at what time the capture button was clicked
+  // console.log('BUTTON CLICKED AT : ' + vid.currentTime);
+
+  // if (!vid.paused) {
+    vid.currentTime = 30;
+    vid.pause();
+
+    // Get frame
+    let canvas = document.getElementById('canvas');
+    let context = cnv.getContext('2d');
+
+    // Draw the video contents into the canvas x, y, width, height
+    context.drawImage(video, 0, 0, cnv.width, cnv.height);
+
+    // Get image data from canvas object
+    let dataURL = cnv.toDataURL();
+
+    // Set the source of the image tag
+    let img = new Image();
+    img.setAttribute('src', dataURL);
+
+    document.getElementById('outputText').append(img);
+
+    // canvas.toBlob('image/jpeg');
+
+    // console.log(ctx);
+
+  // }
+  // else {
+  //   vid.play();
+  // }
+
+  img.width *= .25;
+  img.height *= .25;
+  document.getElementById('outputText').append(img);
+}

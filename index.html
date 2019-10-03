@@ -2,6 +2,11 @@
   Image source for astro slides:
   https://learn.illinois.edu/pluginfile.php/4429320/mod_resource/content/2/astr350_lecture10.pdf
 
+  Video source for video demo:
+  https://www.youtube.com/watch?v=t8aDrpMX7OA
+
+  Downloaded via:
+  https://y2mate.com/
 
  -->
 
@@ -21,7 +26,13 @@
   <body>
     <center>
       <!-- <img src="https://tesseract.projectnaptha.com/img/eng_bw.png" width="60%"> -->
-      <img id="image" src="s14.png" width="60%">
+      <!-- <img id="image" src="s16.png" width="60%"> -->
+
+      <video id="video" width="800" controls>
+        <source  src="video.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+      </video>
+
       <br>
       <hr>
 
@@ -35,7 +46,17 @@
         Demo a slide with an image background
       </button>
 
+      <br><br>
+
+      <button id="captureVideo" type="button" name="button" onclick="processVideo()">
+        Capture video
+      </button>
+
+<input type="file" accept="video/*" />
+
       <hr>
+
+      <canvas id="canvas" width="300" height="300">hi</canvas>
 
       <p id="outputText">Output goes here</p>
     </center>
