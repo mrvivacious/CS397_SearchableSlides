@@ -108,15 +108,22 @@ window.onload = function() {
 function draw(video, cnv) {
   // Get the canvas context for drawing
   let context = cnv.getContext('2d');
+  let img = new Image();
+  img.setAttribute('crossOrigin', 'anonymous');
+  cnv.setAttribute('crossOrigin', 'anonymous');
+
+  console.log(Object.keys(video));
 
   // Draw the video contents into the canvas x, y, width, height
   context.drawImage(video, 0, 0, cnv.width, cnv.height);
 
   // Get image data from canvas object
+  let imgData = context.getImageData(0, 0, cnv.width, cnv.height);
+  console.log('IMGDATA ==== ' + imgData);
+
   let dataURL = cnv.toDataURL();
 
   // Set the source of the image tag
-  let img = new Image();
   img.setAttribute('src', dataURL);
 
   document.getElementById('outputText').append(img);
@@ -138,13 +145,13 @@ function processVideo() {
 
     // Get frame
     let canvas = document.getElementById('canvas');
-    let context = cnv.getContext('2d');
+    let context = canvas.getContext('2d');
 
     // Draw the video contents into the canvas x, y, width, height
-    context.drawImage(video, 0, 0, cnv.width, cnv.height);
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
     // Get image data from canvas object
-    let dataURL = cnv.toDataURL();
+    let dataURL = canvas.toDataURL();
 
     // Set the source of the image tag
     let img = new Image();
