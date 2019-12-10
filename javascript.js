@@ -13,6 +13,7 @@ let imageTag = document.getElementById('image');
 
 let blackOnWhiteImage = 'https://raw.githubusercontent.com/mrvivacious/CS397_SearchableSlides/master/s16.png';
 let unclearTextImage = 'https://raw.githubusercontent.com/mrvivacious/CS397_SearchableSlides/master/s14.png';
+let slideTestImage = 'https://raw.githubusercontent.com/mrvivacious/CS397_SearchableSlides/master/test1.png';
 
 let outputText = document.getElementById('outputText');
 
@@ -25,6 +26,10 @@ button_trickyDemo.addEventListener('click', trickyDemo);
 // Demo with a "standard" slide, ie. black text on white background
 function simpleDemo() {
   getTextFromImage(blackOnWhiteImage);
+}
+
+function slideDemo() {
+  getTextFromImage(slideTestImage);
 }
 
 // Demo with a slide that doesn't output text clearly,
