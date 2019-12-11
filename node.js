@@ -3,7 +3,30 @@ let http = require('http');
 /////////
 
 const extractFrames = require('ffmpeg-extract-frames');
+
+async function quickstart() {
+  // Imports the Google Cloud client library
+  const vision = require('@google-cloud/vision');
+
+  // Creates a client
+  const client = new vision.ImageAnnotatorClient();
+
+  // Performs text detection on the local file
+  const [result] = await client.textDetection('./frames/s2.png');
+  const detections = result.textAnnotations;
+  console.log('Text:');
+  console.log('Detections: ' + detections.length);
+
+  console.log(detections[0].description);
+
+  // detections.forEach(text => console.log(text));
+}
+
+
+quickstart();
 console.log('Extracting frames I guess?');
+
+
 
 let framesExtracted = false;
 
