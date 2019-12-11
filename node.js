@@ -92,12 +92,6 @@ function loadSite() {
       res.write(data);
       res.end();
     });
-    // fs.readFile('s14.png', function(err, data) {
-    //   res.writeHead(200, {'Content-Type': 'image/png'});
-    //   res.write(data);
-    //   res.end();
-    // });
-
   }).listen(6969);
 }
 

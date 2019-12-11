@@ -28,14 +28,14 @@
       <!-- <img src="https://tesseract.projectnaptha.com/img/eng_bw.png" width="60%"> -->
       <!-- <img id="image" src="https://raw.githubusercontent.com/mrvivacious/CS397_SearchableSlides/master/s16.png" width="60%"> -->
 
-      <img id="image" src="s14.png" width="60%">
+      <!-- <img id="image" src="s14.png" width="60%"> -->
 
       <!-- <video id="video" width="800" controls>
-        <source  src="video.mp4" type="video/mp4">
+        <source  src="./video.mp4" type="video/mp4">
           Your browser does not support HTML5 video.
       </video> -->
 
-      <br>
+      <!-- <br>
       <hr>
 
       <button id="simpleDemo" type="button" name="button">
@@ -58,15 +58,20 @@
 
       <button id="captureVideo" type="button" name="button" onclick="processVideo()">
         Capture video
-      </button>
+      </button> -->
 
-<input type="file" accept="video/*" />
+      <!-- <input type="file" accept="video/*" /> -->
 
-      <hr>
+      <!-- <hr> -->
 
       <!-- <canvas id="canvas" width="300" height="300">hi</canvas> -->
 
-      <p id="outputText">Output goes here</p>
+      <input id="input" type="text"/>
+      <button onclick="search()">searchhh!!!</button>
+
+      <p id="result">results go here</p>
+
+
     </center>
   </body>
 
@@ -230,6 +235,162 @@
     img.width *= .25;
     img.height *= .25;
     document.getElementById('outputText').append(img);
+  }
+
+  function search() {
+    let searchDict = {
+      What: 1,
+      Is: 2,
+      'Stress\n•': 6,
+      Stress: 8,
+      is: 1,
+      the: 1,
+      "body's": 1,
+      automatic: 1,
+      response: 1,
+      'to\nany': 1,
+      physical: 1,
+      or: 1,
+      mental: 1,
+      demand: 1,
+      placed: 1,
+      'on\nit.\n•': 1,
+      Adrenaline: 1,
+      a: 1,
+      chemical: 1,
+      'naturally\nproduced': 1,
+      in: 2,
+      our: 1,
+      body: 1,
+      as: 1,
+      'to\nstress': 1,
+      '.\nFight': 1,
+      Flight: 1,
+      'illicited.\n': 1,
+      All: 2,
+      'Bad?\n•': 2,
+      Moderate: 2,
+      levels: 2,
+      of: 8,
+      stress: 2,
+      may: 2,
+      'actually\nimprove': 2,
+      performance: 2,
+      and: 8,
+      'efficiency\n•': 2,
+      Too: 2,
+      little: 2,
+      result: 2,
+      'boredom\n•': 2,
+      much: 2,
+      cause: 2,
+      'an\nunproductive': 2,
+      anxiety: 2,
+      'level\n': 2,
+      Identifying: 3,
+      'Stressors\nSituations,': 3,
+      'activities,': 3,
+      relationships: 3,
+      'that\ncause': 3,
+      "'trauma'": 3,
+      to: 8,
+      "one's": 3,
+      'physical,': 3,
+      'emotional,\nor': 3,
+      psychological: 3,
+      'self\n': 3,
+      'Stressors\n•': 4,
+      'School\n•': 4,
+      'Work\n•': 4,
+      'Family\n•': 4,
+      'Relationships\n•': 4,
+      'Legal\n•': 4,
+      'Finances\n•': 4,
+      'Health/illness\n•': 4,
+      'Environment\nLiving': 4,
+      'Situation\n': 4,
+      Negative: 5,
+      Effects: 5,
+      'Stress\n1.': 5,
+      'Physical\nWeight': 5,
+      'gain/loss\nUnexpected': 5,
+      hair: 5,
+      'loss\nHeart': 5,
+      'palpitations\nHigh': 5,
+      blood: 5,
+      'pressure\n2.': 5,
+      'Emotional\nMood': 5,
+      'swings\nAnxiety\nCan': 5,
+      lead: 5,
+      'depression\nCan': 5,
+      also: 5,
+      unhealthy: 5,
+      'coping\nstrategies': 5,
+      '(i.e.': 5,
+      'alcohol,': 5,
+      'drugs,': 5,
+      'etc)\n': 5,
+      Managing: 6,
+      Relief: 6,
+      'Strategies\n1.': 6,
+      Body: 6,
+      relaxation: 6,
+      'exercises\n-': 6,
+      breathing: 6,
+      'techniques\n-': 6,
+      guided: 6,
+      'imagery\n2.': 6,
+      Physical: 6,
+      'exercise\n-yoga\n-work': 6,
+      out: 6,
+      'routine\n3.': 6,
+      'Meditation\n4.': 6,
+      'Counseling\n-talk': 6,
+      'therapy\n-life': 6,
+      'coaching\n': 6,
+      Other: 7,
+      Helpful: 7,
+      'tips\nChanging': 7,
+      perceptions: 7,
+      'expectations\n•': 7,
+      Break: 7,
+      'jobs/tasks': 7,
+      into: 7,
+      manageable: 7,
+      'parts\n•': 7,
+      Set: 7,
+      'reasonable/realistic': 7,
+      'goals\n•': 7,
+      Avoid: 7,
+      'procrastination\n•': 7,
+      'boundaries\n•': 7,
+      "Don't": 7,
+      compromise: 7,
+      your: 7,
+      'values/beliefs\n•': 7,
+      Schedule: 7,
+      '“me"': 7,
+      'time\n': 7,
+      Benefits: 8,
+      'Management\nPhysical': 8,
+      health: 8,
+      gets: 8,
+      'better\n-more': 8,
+      energy: 8,
+      'stamina\n•': 8,
+      Emotions: 8,
+      'stabilized\nSTA\n-positive': 8,
+      'attitude\n-hopeful/happier\nAbility': 8,
+      focus: 8,
+      'improved\n-able': 8,
+      learn: 8,
+      'achieve\n': 8
+    };
+    console.log('inside search');
+    let input = document.getElementById('input').value;
+    let output = document.getElementById('result');
+
+    output.innerHTML = 'Found on slide ' + searchDict[input];
   }
   </script>
 </html>
