@@ -28,6 +28,8 @@
       <!-- <img src="https://tesseract.projectnaptha.com/img/eng_bw.png" width="60%"> -->
       <img id="image" src="https://raw.githubusercontent.com/mrvivacious/CS397_SearchableSlides/master/s16.png" width="60%">
 
+      <!-- <img id="image" src="s14.png" width="60%"> -->
+
       <!-- <video id="video" width="800" controls>
         <source  src="video.mp4" type="video/mp4">
           Your browser does not support HTML5 video.
@@ -62,7 +64,7 @@
 
       <hr>
 
-      <canvas id="canvas" width="300" height="300">hi</canvas>
+      <!-- <canvas id="canvas" width="300" height="300">hi</canvas> -->
 
       <p id="outputText">Output goes here</p>
     </center>
@@ -85,6 +87,7 @@
 
   let imageTag = document.getElementById('image');
 
+  // let blackOnWhiteImage = 'https://raw.githubusercontent.com/mrvivacious/CS397_SearchableSlides/master/frames/s3.png';
   let blackOnWhiteImage = 'https://raw.githubusercontent.com/mrvivacious/CS397_SearchableSlides/master/s16.png';
   let unclearTextImage = 'https://raw.githubusercontent.com/mrvivacious/CS397_SearchableSlides/master/s14.png';
   let slideTestImage = 'https://raw.githubusercontent.com/mrvivacious/CS397_SearchableSlides/master/test1.png';
@@ -150,14 +153,14 @@
 
   // Thank you,
   // https://snipplr.com/view/64256/
-  window.onload = function() {
-    let video = vid;
-    let canvas = document.getElementById('canvas');
-
-    video.addEventListener('pause', function() {
-      draw(video, canvas);
-    }, false);
-  }
+  // window.onload = function() {
+  //   let video = vid;
+  //   let canvas = document.getElementById('canvas');
+  //
+  //   video.addEventListener('pause', function() {
+  //     draw(video, canvas);
+  //   }, false);
+  // }
 
   function draw(video, cnv) {
     // Get the canvas context for drawing
@@ -186,16 +189,18 @@
   function processVideo() {
     if (vid.src !== document.getElementsByTagName('input')[0].files[0].name) {
       vid.src = document.getElementsByTagName('input')[0].files[0].name;
+      console.log('name == ' + vid.src.split('/')[3]);
     }
 
     // Can we get the frame from every 10 seconds?
 
     // Detect at what time the capture button was clicked
-    // console.log('BUTTON CLICKED AT : ' + vid.currentTime);
+    console.log('BUTTON CLICKED AT : ' + vid.currentTime);
 
     // if (!vid.paused) {
-      vid.currentTime = 30;
-      vid.pause();
+      console.log('hello world');
+      // vid.currentTime = 30;
+      // vid.pause();
 
       // Get frame
       let canvas = document.getElementById('canvas');

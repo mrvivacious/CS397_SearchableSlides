@@ -1,15 +1,49 @@
 let http = require('http');
 
+/////////
+
+const extractFrames = require('ffmpeg-extract-frames');
+console.log('Extracting frames I guess?');
+
+let framesExtracted = false;
+
+function extract() {
+  extractFrames({
+  // extractFrames({
+    input: './video.mp4',
+    // output: './frames/s%i.png',
+    output: './s%i.png',
+    offsets: [
+      10000,
+      20000,
+      30000
+    ]
+  });
+  framesExtracted = true;
+  loadSite();
+}
+
+extract();
+
+///////////
+
 // File system module
 let fs = require('fs');
 
-http.createServer(function (req, res) {
-  fs.readFile('index.html', function(err, data) {
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(data);
-    res.end();
-  });
-}).listen(8080);
+function loadSite() {
+  // if (!framesExtracted) {
+  //
+  // }
+
+  http.createServer(function (req, res) {
+    fs.readFile('index.html', function(err, data) {
+      res.writeHead(200, {'Content-Type': 'text/html'});
+      res.write(data);
+      res.end();
+    });
+  }).listen(8080);
+}
+
 
 
 // See
