@@ -18,8 +18,8 @@ o Given a video of lecture slides, can we detect when the slides change?
 o Can we timestamp slide changes?
 
 Oct 4:
-o Can we get the words on the slides in the video and timestamp those?
-o Can we search for words in some GUI and get the appropriate timestamps?
+√ Can we get the words on the slides in the video and timestamp those?
+√ Can we search for words in some GUI and get the appropriate timestamps?
 
 Oct 25:
 o Can we do the above on a mobile device?
